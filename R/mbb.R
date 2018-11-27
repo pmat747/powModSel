@@ -69,7 +69,7 @@ mbb = function(x, l_mbb, n_bootstrap, temps = NULL){
   res = cbind(Zs[,1] - ref_ti, Zs[,2] - ref_ss);
   colnames(res) = c("ti","ss");
 
-  return(list(Zs = Zs, se = apply(R$Zs, 2, sd), res = res) );
+  return(list(Zs = Zs, se = apply(Zs, 2, sd), res = res) );
 
 }
 

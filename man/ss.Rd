@@ -9,7 +9,7 @@ ss(x, temp = NULL)
 }
 \arguments{
   \item{x}{A data frame with the folloging columns: \code{logL} and \code{invTemp}, which contain the likelihood and inverse temperature values, respectively.  The temperatures must be sorted in an increasing order.}
-  \item{temp}{It indicates the temperatures to be used in the analysis, for instance, c(1,3,K-1) considers the temperatures at those positions.  Note that samples from the prior must be included in the process.  "NULL" stands for all the temperatures in \code{x}.}
+  \item{temp}{It indicates the temperatures to be used in the analysis, for instance, c(1,3,K) considers the temperatures at those positions, where \eqn{K} is the number of temperatures.  Note that samples from the prior and posterior must be included in the process, even though the latter are not used by the algorithm.  "NULL" stands for all the temperatures in \code{x}.}
 }
 \details{
 Power posterior methods, among them stepping-stone sampling, rely on a set of samples from different transitional distributions, connecting the prior and the posterior distributions, which is defined by the power posterior density
@@ -37,5 +37,5 @@ likelihood estimation for Bayesian phylogenetic model selection.  \emph{Systemat
 }
 \examples{
 data(ligovirgodata)
-ss(x, temp = NULL)
+ss(ligovirgodata, temp = NULL)
 }

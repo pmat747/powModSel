@@ -1,11 +1,15 @@
 Package: powModSel
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Power Posterior Methods for model selection
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Patricio Maturana Russel
+Maintainer: Patricio Maturana Russel <p.russel@auckland.ac.nz>
+Description: Implementation of power posterior methods, such as 
+thermodynamic integration and stepping-stone sampling, for estimating
+the marginal likelihood and subsequently model selection. The uncertainty 
+associated to the estimates is estimated via moving block bootstrap.  
+Examples of the methodology can be found in Maturana, Meyer, Veitch and 
+Christensen <arXiv:1810.04488>.
+License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true

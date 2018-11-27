@@ -6,7 +6,7 @@
 
 ti = function(x, actPlot = FALSE, temp = NULL){
 
-  if( !is.null(temp)){ # selecting certain temperatures (temps)
+  if( !is.null(temp)){ # selecting certain temperatures (temp)
     #count = aggregate(logL~invTemp, data = x, FUN = length);
     index = which(diff(x$invTemp)!=0);
     index = cbind(c(1, index + 1), c(index, dim(x)[1]));

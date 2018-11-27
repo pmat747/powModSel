@@ -14,7 +14,7 @@ mbb(x, l_mbb, n_bootstrap, temps = NULL)
   \item{temp}{It indicates the temperatures to be used in the analysis, for instance, c(1,3,K) considers the temperatures at those positions, where \eqn{K} is the number of temperatures.  In this case, the temperatures must be sorted in an increasing order.  Note that samples from the prior and posterior must be included in the process.  \code{NULL} stands for all the temperatures in \code{x}.}
 }
 \details{
-See more details in Maturana R. et al. (2018)
+For a block length equal to 1 (\code{l_mbb}=1) the original bootstrap method for i.i.d. data is recovered.  A block lenght greater than one allows to take into account a potential autocorrelation within the Markov chains.  \code{mbb} is being designed to take also into account potential cross-correlation between the Markov chains due to swaps in parallel tempering sampling.  See more details in Maturana R. et al. (2018)
 }
 \value{
   It produces a list with the following elements:

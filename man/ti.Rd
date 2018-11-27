@@ -1,0 +1,29 @@
+\name{ti}
+\alias{hello}
+\title{Thermodynamic integration}
+\description{
+This function produces a thermodynamic integration estimate of the marginal likelihood given a set of likelihood values at different temperatures.
+}
+\usage{
+ti(x, actPlot = FALSE, temp = NULL)
+}
+\arguments{
+  \item{x}{A data frame with the folloging columns: \code{logL} and \code{invTemp}, which contain the likelihood and inverse temperature values, respectively.}
+  \item{actPlot}{If it is \code{TRUE}, the function plots the temperatures against  the log-likelihood means at the different temperatures.}
+  \item{temp}{It indicates the temperatures to be used in the analysis, for instance, c(1,3,K) considers the temperatures at those positions.  In this case, the temperatures must be sorted in an increasing order.  Note that samples from the prior and posterior must be included in the process.  "NULL" stands for all the temperatures in \code{x}.}
+}
+\details{
+Power posterior methods, in particular thermodynamic integration, rely on a set of samples from different transitional distributions, connecting the prior and the posterior distributions, which is defined by the power posterior density
+\deqn{p(\theta) \propto L(x|\theta)^{\beta} \pi(\theta) }
+where \eqn{\theta} is the parameter vector, \eqn{\beta} is the inverse temperature, \eqn{x} is the data, \eqn{p(\theta)} is the power posterior density, \eqn{L(x|\theta) is the likelihood function, and \eqn{\pi(\theta)} is the prior density.}
+}
+\value{
+  It produces a thermodynamic integration estimate.
+}
+\author{
+Patricio Maturana Russel \email{p.russel@auckland.ac.nz}
+}
+\examples{
+data(ligodata)
+ti(x, actPlot = TRUE, temp = NULL)
+}

@@ -25,7 +25,7 @@ ss = function(x, temp = NULL){
   count = count$logL[-dim(count)[1]]; # Number of elements per temperature/no posterior
   delta = rep(diff, times = count); # replicating diff in original data
   N     = sum(count); # = length(delta)
-  logl  = x[1:N, 'logL']; # extracting loglike
+  logL  = x[1:N, 'logL']; # extracting loglike
   loglDelta = logL * delta; # loglike x delta
   invTemp   = x[1:N, 'invTemp']; # extracting temperature
   Rss   = cbind(invTemp, loglDelta);

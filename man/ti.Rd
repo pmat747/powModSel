@@ -1,5 +1,5 @@
 \name{ti}
-\alias{hello}
+\alias{ti}
 \title{Thermodynamic integration}
 \description{
 This function produces a thermodynamic integration estimate of the marginal likelihood given a set of likelihood values at different temperatures.
@@ -13,9 +13,11 @@ ti(x, actPlot = FALSE, temp = NULL)
   \item{temp}{It indicates the temperatures to be used in the analysis, for instance, c(1,3,K) considers the temperatures at those positions.  In this case, the temperatures must be sorted in an increasing order.  Note that samples from the prior and posterior must be included in the process.  "NULL" stands for all the temperatures in \code{x}.}
 }
 \details{
-Power posterior methods, in particular thermodynamic integration, rely on a set of samples from different transitional distributions, connecting the prior and the posterior distributions, which is defined by the power posterior density
-\deqn{p(\theta) \propto L(x|\theta)^{\beta} \pi(\theta) }
-where \eqn{\theta} is the parameter vector, \eqn{\beta} is the inverse temperature, \eqn{x} is the data, \eqn{p(\theta)} is the power posterior density, \eqn{L(x|\theta) is the likelihood function, and \eqn{\pi(\theta)} is the prior density.}
+Power posterior methods, among them thermodynamic integration, rely on a set of samples from different transitional distributions, connecting the prior and the posterior distributions, which is defined by the power posterior density
+\deqn{p(\theta) \propto L(x|\theta)^{\beta} \pi(\theta), }
+where \eqn{\theta} is the parameter vector, \eqn{0 \le \beta \le 1} is the inverse temperature, \eqn{x} is the data, \eqn{p(\theta)} is the power posterior density, \eqn{L(x|\theta)} is the likelihood function, and \eqn{\pi(\theta)} is the prior density.
+
+\code{ti} uses the trapezoidal rule in the estimation (see more details in Lartillot and Philippe (2006)).
 }
 \value{
   It produces a thermodynamic integration estimate.
@@ -23,7 +25,12 @@ where \eqn{\theta} is the parameter vector, \eqn{\beta} is the inverse temperatu
 \author{
 Patricio Maturana Russel \email{p.russel@auckland.ac.nz}
 }
+\references{
+
+Lartillot, N., and Philippe, H. 2006.  Computing Bayes factors using Thermodynamic Integration. \emph{Systematic Biology} \bold{55}(2), 195--207.
+
+}
 \examples{
-data(ligodata)
+data(ligovirgodata)
 ti(x, actPlot = TRUE, temp = NULL)
 }

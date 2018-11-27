@@ -7,7 +7,7 @@
 ti = function(x, actPlot = FALSE, temp = NULL){
 
   if( !is.null(temp)){ # selecting certain temperatures (temps)
-    count = aggregate(logL~invTemp, data = x, FUN = length);
+    #count = aggregate(logL~invTemp, data = x, FUN = length);
     index = which(diff(x$invTemp)!=0);
     index = cbind(c(1, index + 1), c(index, dim(x)[1]));
     index = index[temp,];
@@ -20,8 +20,8 @@ ti = function(x, actPlot = FALSE, temp = NULL){
   Rti = aggregate(logL~invTemp, FUN = mean, data = x); # Mean per temperature
 
   if( actPlot == TRUE){
-    plot(Rti$invTemp, Rti$logl, xlab = "Inverse temperature",
-         ylab = "power posterior log-likelihood")
+    plot(Rti$invTemp, Rti$logL, xlab = "Inverse temperature",
+         ylab = "Log-likelihood mean")
   }
 
   return( sum( diff(Rti$invTemp) *

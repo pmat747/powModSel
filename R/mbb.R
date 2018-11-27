@@ -6,10 +6,10 @@
 
 mbb = function(x, l_mbb, n_bootstrap, temps = NULL){
 
-  count = aggregate(logl~temperature, data = x, FUN = length);# (temp, length)
-  count = count$logl; # Number of elements per temperature
+  count = aggregate(logL~invTemp, data = x, FUN = length);# (temp, length)
+  count = count$logL; # Number of elements per temperature
   # unique(x$temperature); # temperatures in x
-  index = which(diff(x$temperature)!=0);
+  index = which(diff(x$invTemp)!=0);
   index = cbind(c(1, index + 1), c(index, dim(x)[1]));# indexes
 
   if( !is.null(temps)){ # selecting certain temperatures (temps)
@@ -22,7 +22,7 @@ mbb = function(x, l_mbb, n_bootstrap, temps = NULL){
     ref_ti = ti(newX); # true values for the subset
     ref_ss = ss(newX);
 
-    index = which(diff(x$temperature)!=0); # for new dataset
+    index = which(diff(x$invTemp)!=0); # for new dataset
     index = cbind(c(1, index + 1), c(index, dim(x)[1]));# indexes
 
   }else{

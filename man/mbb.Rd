@@ -5,7 +5,7 @@
 This function produces a set of marginal likelihood estimates for moving block bootstrap observations.  Its main use is for calculating the standard error associated to the thermodynamic integration and stepping-stone sampling estimates.
 }
 \usage{
-mbb(x, l_mbb, n_bootstrap, temps = NULL)
+mbb(x, l_mbb, n_bootstrap, temp = NULL)
 }
 \arguments{
   \item{x}{A data frame with the folloging columns: \code{logL} and \code{invTemp}, which contain the likelihood and inverse temperature values, respectively.}
@@ -27,13 +27,13 @@ Patricio Maturana Russel \email{p.russel@auckland.ac.nz}
 }
 \references{
 
-Kunsch, H. R. 1989. The Jackknife and the Bootstrap for General Stationary Observations. \emph{The Annals of Statistics} 17(3), 1217--1241.
+Kunsch, H. R. 1989. The Jackknife and the Bootstrap for General Stationary Observations. \emph{The Annals of Statistics} \bold{17}(3), 1217--1241.
 
 Maturana Russel, P., Meyer, R., Veitch, J., and Christensen, N. 2018. The stepping-stone algorithm for calculating the evidence of gravitational wave models. arXiv preprint arXiv:1810.04488
 
 }
 \examples{
-data(ligovirgodata)
-R = mbb(ligovirgodata, l_mbb = 10, n_bootstrap = 50, temps = NULL)
+data(ligoVirgoData)
+R = mbb(ligoVirgoData, l_mbb = 10, n_bootstrap = 50, temp = NULL)
 R$se; # standard error of the marginal likelihood estimates
 }

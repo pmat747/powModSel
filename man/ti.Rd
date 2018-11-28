@@ -31,6 +31,6 @@ Lartillot, N., and Philippe, H. 2006.  Computing Bayes factors using Thermodynam
 
 }
 \examples{
-data(ligovirgodata)
-ti(ligovirgodata, actPlot = TRUE, temp = NULL)
+data(ligoVirgoData)
+ti(ligoVirgoData, actPlot = TRUE, temp = NULL)
 }

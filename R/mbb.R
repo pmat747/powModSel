@@ -4,17 +4,17 @@
 #' @return list
 #' @export mbb
 
-mbb = function(x, l_mbb, n_bootstrap, temps = NULL){
+mbb = function(x, l_mbb, n_bootstrap, temp = NULL){
 
-  count = aggregate(logL~invTemp, data = x, FUN = length);# (temp, length)
+  count = stats::aggregate(logL~invTemp, data = x, FUN = length);# (temp, length)
   count = count$logL; # Number of elements per temperature
   # unique(x$temperature); # temperatures in x
   index = which(diff(x$invTemp)!=0);
   index = cbind(c(1, index + 1), c(index, dim(x)[1]));# indexes
 
-  if( !is.null(temps)){ # selecting certain temperatures (temps)
-    index = index[temps, ]; # for original dataset
-    count = count[temps];
+  if( !is.null(temp)){ # selecting certain temperatures (temp)
+    index = index[temp, ]; # for original dataset
+    count = count[temp];
     newX  = unlist(apply(index, 1, function(x)seq(x[1],x[2], by = 1)));
     newX  = x[as.character(newX),];
     rownames(newX) = NULL; # reseting rownames
@@ -41,7 +41,7 @@ mbb = function(x, l_mbb, n_bootstrap, temps = NULL){
   Zs      = NULL;
   indx   = c(apply(matrix(index[,1] - 1), 1, function(x) rep(x, minCount)));
 
-  Sam  = sample(x = minN_mbb, size = n_bootstrap * minb_mbb, replace = TRUE);# Sampling all the Temps at the same position
+  Sam  = sample(x = minN_mbb, size = n_bootstrap * minb_mbb, replace = TRUE);# Sampling all the invTemp at the same position
   # Each row contains starting block positions to generate a bootstrap dataset
   Sam  = matrix(Sam, nrow = n_bootstrap);
 
@@ -69,7 +69,7 @@ mbb = function(x, l_mbb, n_bootstrap, temps = NULL){
   res = cbind(Zs[,1] - ref_ti, Zs[,2] - ref_ss);
   colnames(res) = c("ti","ss");
 
-  return(list(Zs = Zs, se = apply(Zs, 2, sd), res = res) );
+  return(list(Zs = Zs, se = apply(Zs, 2, stats::sd), res = res) );
 
 }
 

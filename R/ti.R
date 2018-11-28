@@ -1,8 +1,12 @@
 #' @title Thermodynamic integration
 #' @description It calculates the thermodynamic integration estimate given the likelihood and the temperature values
-#' @param data A dataframe
+#' @param x A dataframe
+#' @param actPlot Logic value
+#' @param temp Integer vector subset of 1:K, where K:number of temperatures
 #' @return A numeric value, and an optional plot
+#' @return Thermodynamic integration estimate (numeric value)
 #' @export ti
+#' @importFrom stats
 
 ti = function(x, actPlot = FALSE, temp = NULL){
 
@@ -17,7 +21,7 @@ ti = function(x, actPlot = FALSE, temp = NULL){
     x = newX;
   }
 
-  Rti = aggregate(logL~invTemp, FUN = mean, data = x); # Mean per temperature
+  Rti = stats::aggregate(logL~invTemp, FUN = mean, data = x); # Mean per temperature
 
   if( actPlot == TRUE){
     plot(Rti$invTemp, Rti$logL, xlab = "Inverse temperature",

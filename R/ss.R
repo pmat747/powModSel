@@ -1,13 +1,14 @@
 #' @title Stepping-stone sampling
 #' @description It calculates a stepping-stone sampling estimate given the likelihood and the temperature values
-#' @param data A dataframe
-#' @return A numeric value, and an optional plot
+#' @param x A dataframe
+#' @param temp Integer vector subset of 1:K, where K:number of temperatures
+#' @return Stepping-stone sampling estimate (numeric value)
 #' @export ss
 
 ss = function(x, temp = NULL){
 
   if( !is.null(temp)){ # selecting certain temperatures (temps)
-    count = aggregate(logL~invTemp, data = x, FUN = length);
+    count = stats::aggregate(logL~invTemp, data = x, FUN = length);
     index = which(diff(x$invTemp)!=0);
     index = cbind(c(1, index + 1), c(index, dim(x)[1]));
     index = index[temp,];
@@ -19,7 +20,7 @@ ss = function(x, temp = NULL){
 
   rownames(x) = NULL; # reseting rownames
 
-  count = aggregate(logL~invTemp, data = x, FUN = length);
+  count = stats::aggregate(logL~invTemp, data = x, FUN = length);
   # 'count' could be sorted here, increasing order, if 'x' is not ordered
   diff  = diff(count$invTemp); #=diff(unique(x$temperature));#difference between temperatures
   count = count$logL[-dim(count)[1]]; # Number of elements per temperature/no posterior
@@ -29,7 +30,7 @@ ss = function(x, temp = NULL){
   loglDelta = logL * delta; # loglike x delta
   invTemp   = x[1:N, 'invTemp']; # extracting temperature
   Rss   = cbind(invTemp, loglDelta);
-  Rss   = aggregate(loglDelta~invTemp, data = Rss, FUN = logplusvec);
+  Rss   = stats::aggregate(loglDelta~invTemp, data = Rss, FUN = logplusvec);
   Rss   = Rss["loglDelta"] - log(count); # Individual rate estimates
 
   return(sum(Rss));

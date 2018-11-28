@@ -36,6 +36,6 @@ likelihood estimation for Bayesian phylogenetic model selection.  \emph{Systemat
 
 }
 \examples{
-data(ligovirgodata)
-ss(ligovirgodata, temp = NULL)
+data(ligoVirgoData)
+ss(ligoVirgoData, temp = NULL)
 }

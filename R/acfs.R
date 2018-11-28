@@ -24,7 +24,7 @@ acfs = function(x, temp = NULL, lag.max = NULL){
 
   for(i in temp){
       acf(x$logL[index[i,1]:index[i,2]],
-          main = paste( "Temperature ", tempvalue[i], " - ", i),
+          main = paste( "Inverse Temperature ", tempvalue[i], " - ", i),
           lag.max = lag.max);
   }
 

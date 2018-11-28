@@ -26,6 +26,7 @@ eqchain = function(x){
 
   x     = x[aux, ];
   rownames(x) = NULL; # reseting rownames
+  x     = as.data.frame(x);
 
   ### Print on screen ###
   r = as.data.frame(cbind(1:length(count), abs(count - minCount)));

@@ -2,7 +2,7 @@
 \alias{acfs}
 \title{Autocorrelation function}
 \description{
-The function computes estimates of the autocovariance or autocorrelation function using \code{acf} function.
+The function \code{acfs} computes estimates of the autocorrelation function via \code{acf} function.
 }
 \usage{
 acfs(x, temp = NULL, lag.max = NULL)

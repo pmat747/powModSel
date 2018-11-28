@@ -2,13 +2,13 @@
 \alias{ti}
 \title{Thermodynamic integration}
 \description{
-This function produces a thermodynamic integration estimate of the marginal likelihood given a set of likelihood values at different temperatures.
+This function produces a thermodynamic integration estimate of the marginal likelihood given a set of log-likelihood values at different temperatures.
 }
 \usage{
 ti(x, actPlot = FALSE, temp = NULL)
 }
 \arguments{
-  \item{x}{A data frame with the folloging columns: \code{logL} and \code{invTemp}, which contain the likelihood and inverse temperature values, respectively.}
+  \item{x}{A data frame with the folloging columns: \code{logL} and \code{invTemp}, which contain the log-likelihood and inverse temperature values, respectively.}
   \item{actPlot}{If it is \code{TRUE}, the function plots the temperatures against  the log-likelihood means at the different temperatures.}
   \item{temp}{It indicates the temperatures to be used in the analysis, for instance, c(1,3,K) considers the temperatures at those positions, where \eqn{K} is the number of temperatures.  In this case, the temperatures must be sorted in an increasing order.  Note that samples from the prior and posterior must be included in the process.  "NULL" stands for all the temperatures in \code{x}.}
 }
@@ -31,6 +31,6 @@ Lartillot, N., and Philippe, H. 2006.  Computing Bayes factors using Thermodynam
 
 }
 \examples{
-data(ligoVirgoData)
-ti(ligoVirgoData, actPlot = TRUE, temp = NULL)
+data(ligoVirgoSim)
+ti(ligoVirgoSim, actPlot = TRUE, temp = NULL)
 }

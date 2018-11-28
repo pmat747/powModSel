@@ -2,13 +2,13 @@
 \alias{ss}
 \title{Stepping-stone sampling}
 \description{
-This function produces a stepping-stone sampling estimate of the marginal likelihood given a set of likelihood values at different temperatures.  It can also be used to produce a generalised stepping-stone sampling estimate (see details below).
+This function produces a stepping-stone sampling estimate of the marginal likelihood given a set of log-likelihood values at different temperatures.  It can also be used to produce a generalised stepping-stone sampling estimate (see details below).
 }
 \usage{
 ss(x, temp = NULL)
 }
 \arguments{
-  \item{x}{A data frame with the folloging columns: \code{logL} and \code{invTemp}, which contain the likelihood and inverse temperature values, respectively.  The temperatures must be sorted in an increasing order.}
+  \item{x}{A data frame with the folloging columns: \code{logL} and \code{invTemp}, which contain the log-likelihood and inverse temperature values, respectively.  The temperatures must be sorted in an increasing order.}
   \item{temp}{It indicates the temperatures to be used in the analysis, for instance, c(1,3,K) considers the temperatures at those positions, where \eqn{K} is the number of temperatures.  Note that samples from the prior and posterior must be included in the process, even though the latter are not used by the algorithm.  "NULL" stands for all the temperatures in \code{x}.}
 }
 \details{
@@ -36,6 +36,6 @@ likelihood estimation for Bayesian phylogenetic model selection.  \emph{Systemat
 
 }
 \examples{
-data(ligoVirgoData)
-ss(ligoVirgoData, temp = NULL)
+data(ligoVirgoSim)
+ss(ligoVirgoSim, temp = NULL)
 }

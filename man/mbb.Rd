@@ -8,7 +8,7 @@ This function produces a set of marginal likelihood estimates for moving block b
 mbb(x, l_mbb, n_bootstrap, temp = NULL)
 }
 \arguments{
-  \item{x}{A data frame with the folloging columns: \code{logL} and \code{invTemp}, which contain the likelihood and inverse temperature values, respectively.}
+  \item{x}{A data frame with the folloging columns: \code{logL} and \code{invTemp}, which contain the log-likelihood and inverse temperature values, respectively.}
   \item{l_mbb}{Block lenghts.}
   \item{n_bootstrap}{Number of bootstrap observations to be analysed.}
   \item{temp}{It indicates the temperatures to be used in the analysis, for instance, c(1,3,K) considers the temperatures at those positions, where \eqn{K} is the number of temperatures.  In this case, the temperatures must be sorted in an increasing order.  Note that samples from the prior and posterior must be included in the process.  \code{NULL} stands for all the temperatures in \code{x}.}
@@ -33,7 +33,7 @@ Maturana Russel, P., Meyer, R., Veitch, J., and Christensen, N. 2018. The steppi
 
 }
 \examples{
-data(ligoVirgoData)
-R = mbb(ligoVirgoData, l_mbb = 10, n_bootstrap = 50, temp = NULL)
+data(ligoVirgoSim)
+R = mbb(ligoVirgoSim, l_mbb = 10, n_bootstrap = 20, temp = NULL)
 R$se; # standard error of the marginal likelihood estimates
 }

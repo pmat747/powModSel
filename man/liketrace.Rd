@@ -1,6 +1,6 @@
 \name{liketrace}
 \alias{liketrace}
-\title{log-likelihood trace plot}
+\title{Log-likelihood trace plot}
 \description{
 This function produces trace plots for the log-likelihood at each or specific temperatures.
 }

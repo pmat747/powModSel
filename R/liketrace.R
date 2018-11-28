@@ -18,6 +18,8 @@ liketrace = function(x, temp = NULL){
 
   tempvalue  = round(unique(x$invTemp), 4);
 
+  par(mar = rep(4,4));
+
   for(i in temp){
 
     aux = index[i,1]:index[i,2];

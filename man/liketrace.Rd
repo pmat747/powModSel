@@ -5,11 +5,11 @@
 This function produces trace plots for the log-likelihood at each or specific temperatures.
 }
 \usage{
-liketrace(x, num = NULL)
+liketrace(x, temp = NULL)
 }
 \arguments{
   \item{x}{A data frame with the folloging columns: \code{logL} and \code{invTemp}, which contain the log-likelihood and inverse temperature values, respectively.}
-  \item{num}{Position of the temperature to be plotted.}
+  \item{temp}{Position of the temperature to be plotted.}
 }
 \value{
   It produces a set of log-likelihood traceplots.
@@ -19,5 +19,5 @@ Patricio Maturana Russel \email{p.russel@auckland.ac.nz}
 }
 \examples{
 data(ligoVirgoSim)
-liketrace(ligoVirgoSim, num = c(1)) # Plotting log-likelihoods for the first temperature
+liketrace(ligoVirgoSim, temp = c(1)) # Plotting log-likelihoods for the first temperature
 }

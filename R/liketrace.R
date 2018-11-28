@@ -1,24 +1,25 @@
 #' @title Log-likelihood trace plot
 #' @description This function produces the traceplot for the log-likelihood at each temperature
 #' @param x dataframe
+#' @param temp vector indicating the temperatures to be plotted
 #' @return A set of traceplots
 #' @export liketrace
 
-liketrace = function(x, num = NULL){
+liketrace = function(x, temp = NULL){
 
   # x  : data (1 column: temperatures, 2 column likelihood values)
-  # num: temperature to be plotted
+  # temp: temperature to be plotted
 
   index = which(diff(x$invTemp)!=0);
   index = cbind(c(1, index + 1), c(index, dim(x)[1]));
   j     = dim(index)[1];
 
-  temp  = round(unique(x$invTemp), 4);
+  tempvalue  = round(unique(x$invTemp), 4);
 
-  if(!is.null(num)){
+  if(!is.null(temp)){
 
-    ts.plot(x$logL[index[num, 1]:index[num, 2]],
-            main = paste( "Inverse Temperature ", temp[num], " - ", num),
+    ts.plot(x$logL[index[temp, 1]:index[temp, 2]],
+            main = paste( "Inverse Temperature ", tempvalue[temp], " - ", temp),
             ylab = "log-likelihood", xlab = "Iteration");
 
   }else{
@@ -27,7 +28,7 @@ liketrace = function(x, num = NULL){
 
       aux = index[i,1]:index[i,2];
       ts.plot(x$logL[aux],
-              main = paste( "Inverse Temperature ", temp[i], " - ", i),
+              main = paste( "Inverse Temperature ", tempvalue[i], " - ", i),
               ylab = "log-likelihood", xlab = "Iteration");
     }
 

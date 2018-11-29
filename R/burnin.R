@@ -30,6 +30,7 @@ burnin = function(x, n_burnin, percentage = NULL){
   #out   = x[as.character(index),];
   out   = x[index,];
   rownames(out) = NULL; # reseting rownames # need when taking row values
+  out   = as.data.frame(out);
 
   return(out);
 

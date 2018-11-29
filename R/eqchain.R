@@ -34,6 +34,6 @@ eqchain = function(x){
   cat("Number of observations (from the tail) deleted per temperature", "\n");
   print(r);
   cat("New chain lengths:", minCount,"\n");
-  ### ###
+
   return(x);
 }

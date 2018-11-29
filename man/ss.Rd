@@ -18,7 +18,7 @@ where \eqn{\theta} is the parameter vector, \eqn{0 \le \beta \le 1} is the inver
 
 \code{ss} can be also used to produce a generalised stepping-stone sampling estimate.  In this case, the power posterior density defines a path between a reference distribution \eqn{g} and the posterior and is given by
 \deqn{p(\theta) \propto (L(x|\theta)\pi(\theta))^{\beta} g(\theta)^{1-\beta},}
-where  \eqn{0 \le \beta \le 1} is the inverse temperature.  See more details about the generalised stepping-stone sampling algorithm in Fan et al. (2011).
+where  \eqn{0 \le \beta \le 1} is the inverse temperature.  The reference distribution needs to be a reasonable approximation of the posterior.  See more details about the generalised stepping-stone sampling algorithm in Fan et al. (2011).
 }
 \value{
   It produces a stepping-stone sampling estimate.

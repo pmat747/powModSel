@@ -17,9 +17,11 @@ ti = function(x, actPlot = FALSE, temp = NULL){
     index = index[temp,];
     newX  = unlist(apply(index, 1, function(x)seq(x[1],x[2], by = 1)));
     newX  = x[as.character(newX),];
-    rownames(newX) = NULL; # reseting rownames
+    #rownames(newX) = NULL; # reseting rownames
     x = newX;
   }
+
+  rownames(x) = NULL; # reseting rownames
 
   Rti = stats::aggregate(logL~invTemp, FUN = mean, data = x); # Mean per temperature
 

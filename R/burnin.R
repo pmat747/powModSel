@@ -6,7 +6,7 @@
 #' @return A dataframe
 #' @export burnin
 
-burnin = function(x, percentage = NULL, n_burnin = NULL){
+burnin = function(x, percentage = NULL, nburnin = NULL){
 
   index = which(diff(x$invTemp)!=0);
   index = cbind(c(1, index + 1), c(index, dim(x)[1]));
@@ -16,24 +16,24 @@ burnin = function(x, percentage = NULL, n_burnin = NULL){
     if((percentage < 0) || (percentage > 100)){
       stop("Percentage must be in [0-100]")}
 
-    n_burnin= round((index[,2] - index[,1] + 1) * percentage / 100);
+    nburnin= round((index[,2] - index[,1] + 1) * percentage / 100);
 
-  }else if(!is.null(n_burnin)){
+  }else if(!is.null(nburnin)){
 
-    if((n_burnin %% 1 != 0) || (n_burnin < 0)){
-      stop("n_burnin must be a non-negative integer")}
+    if((nburnin %% 1 != 0) || (nburnin < 0)){
+      stop("nburnin must be a non-negative integer")}
 
     aux = min(index[,2] - index[,1]);
 
-    if( aux < n_burnin){
-      stop(paste("n_burnin must be lowest than ", aux, sep = "", "\n"))
+    if( aux < nburnin){
+      stop(paste("nburnin must be lowest than ", aux, sep = "", "\n"))
     }
 
   }else{
     stop("Burnin period must be specified")
   }
 
-  index[, 1] = index[, 1] + n_burnin;
+  index[, 1] = index[, 1] + nburnin;
 
   index = unlist(apply(index, 1, function(y)seq(y[1], y[2], by=1)) );
 

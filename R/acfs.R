@@ -1,7 +1,6 @@
 #' @title Autocorrelation function
 #' @description This function produces the autocorrelation plot for the log-likelihood at each temperature
 #' @name acfs
-#' @description The function \code{acfs} computes estimates of the autocorrelation function via \code{acf} function.
 #' @usage acfs(x, temp = NULL, lag.max = NULL)
 #' @param x A data frame with the folloging columns: \code{logL} and \code{invTemp}, which contain the log-likelihood and inverse temperature values, respectively.
 #' @param temp Position of the temperature to be plotted.

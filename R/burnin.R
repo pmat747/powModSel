@@ -1,5 +1,5 @@
 #' @title Burnin period
-#' @name Burnin
+#' @name burnin
 #' @description This function discards the first log-likelihood values at each inverse temperature as burnin period.
 #' @usage burnin(x, percentage = NULL, nburnin = NULL)
 #' @param x A data frame with the folloging columns: \code{logL} and \code{invTemp}, which contain the log-likelihood and inverse temperature values, respectively.

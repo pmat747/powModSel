@@ -36,6 +36,7 @@ R$se; # standard error of the marginal likelihood estimates
 }
 \references{
 Kunsch, H. R. 1989. The Jackknife and the Bootstrap for General Stationary Observations. \emph{The Annals of Statistics} \bold{17}(3), 1217--1241.
+
 Maturana Russel, P., Meyer, R., Veitch, J., and Christensen, N. 2018. The stepping-stone algorithm for calculating the evidence of gravitational wave models. arXiv preprint arXiv:1810.04488
 }
 \author{

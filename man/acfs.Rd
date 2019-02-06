@@ -18,8 +18,6 @@ It produces a set of autocorrelation plots.
 }
 \description{
 This function produces the autocorrelation plot for the log-likelihood at each temperature
-
-The function \code{acfs} computes estimates of the autocorrelation function via \code{acf} function.
 }
 \examples{
 \dontrun{

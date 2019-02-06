@@ -1,11 +1,18 @@
 #' @title Burnin period
-#' @description It deletes initial likelihood values at each temperature as burnin period
-#' @param x dataframe
-#' @param percentage percentage of the burnin period
-#' @param burnin integer which stands for the number of values to be deleted
-#' @return A dataframe
-#' @export burnin
-
+#' @name Burnin
+#' @description This function discards the first log-likelihood values at each inverse temperature as burnin period.
+#' @usage burnin(x, percentage = NULL, nburnin = NULL)
+#' @param x A data frame with the folloging columns: \code{logL} and \code{invTemp}, which contain the log-likelihood and inverse temperature values, respectively.
+#' @param percentage Percentage of log-likelihod values to discard at each temperature.
+#' @param nburnin Number of log-likelihod values to discard at each temperature.
+#' @return It produces a new \code{x} with a burnin period.
+#' @author Patricio Maturana Russel \email{p.russel@auckland.ac.nz}
+#' @examples
+#' \dontrun{
+#' data(ligoVirgoSim)
+#' burnin(ligoVirgoSim, percentage=10); #discarding 10\% of log-likelihood values at each temperature
+#' }
+#' @export
 burnin = function(x, percentage = NULL, nburnin = NULL){
 
   index = which(diff(x$invTemp)!=0);

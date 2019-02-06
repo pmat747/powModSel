@@ -1,11 +1,19 @@
-#' @title Autocorrelation plot
+#' @title Autocorrelation function
 #' @description This function produces the autocorrelation plot for the log-likelihood at each temperature
-#' @param x dataframe
-#' @param temp vector indicating the temperatures to be plotted
+#' @name acfs
+#' @description The function \code{acfs} computes estimates of the autocorrelation function via \code{acf} function.
+#' @usage acfs(x, temp = NULL, lag.max = NULL)
+#' @param x A data frame with the folloging columns: \code{logL} and \code{invTemp}, which contain the log-likelihood and inverse temperature values, respectively.
+#' @param temp Position of the temperature to be plotted.
 #' @param lag.max maximum lag at which to calculate the autocorralation function.
-#' @return A set of autocorrelation plot
-#' @export acfs
-
+#' @return It produces a set of autocorrelation plots.
+#' @author Patricio Maturana Russel \email{p.russel@auckland.ac.nz}
+#' @examples
+#' \dontrun{
+#' data(ligoVirgoSim)
+#' acfs(ligoVirgoSim, temp = 1:3)
+#' }
+#' @export
 acfs = function(x, temp = NULL, lag.max = NULL){
 
   index = which(diff(x$invTemp)!=0);
@@ -20,12 +28,12 @@ acfs = function(x, temp = NULL, lag.max = NULL){
 
   tempvalue = round(unique(x$invTemp), 4);
 
-  par(mar = rep(4,4));
+  graphics::par(mar = rep(4,4));
 
   for(i in temp){
-      acf(x$logL[index[i,1]:index[i,2]],
-          main = paste( "Inverse Temperature ", tempvalue[i], " - ", i),
-          lag.max = lag.max);
+    stats::acf(x$logL[index[i,1]:index[i,2]],
+               main = paste( "Inverse Temperature ", tempvalue[i], " - ", i),
+               lag.max = lag.max);
   }
 
   cat("Number of autocorrelation plots", length(temp));

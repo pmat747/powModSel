@@ -1,9 +1,16 @@
-#' @title equal chain lengths
-#' @description This function equates the Markov chain lengths at all temperatures according to the shortest one
-#' @param x dataframe
-#' @return A numeric value, and an optional plot
-#' @export eqchain
-
+#' @title Equal chain lengths
+#' @name eqchain
+#' @description This function equates the Markov chain lengths at all the temperatures according to the shortest one.
+#' @usage eqchain(x)
+#' @param x A data frame with the folloging columns: \code{logL} and \code{invTemp}, which contain the log-likelihood and inverse temperature values, respectively.
+#' @return It produces a new \code{x} with a equal number of log-likelihood values at each temperature.
+#' @author Patricio Maturana Russel \email{p.russel@auckland.ac.nz}
+#' @examples
+#' \dontrun{
+#' data(ligoVirgoSim)
+#' eqchain(ligoVirgoSim)
+#' }
+#' @export
 eqchain = function(x){
 
   count = stats::aggregate(logL~invTemp, data = x, FUN = length);

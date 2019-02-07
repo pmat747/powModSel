@@ -13,11 +13,9 @@
 #'          where  \eqn{0 \le \beta \le 1} is the inverse temperature.  The reference distribution needs to be a reasonable approximation of the posterior.  See more details about the generalised stepping-stone sampling algorithm in Fan et al. (2011).
 #' @return It produces a stepping-stone sampling estimate.
 #' @author Patricio Maturana Russel \email{p.russel@auckland.ac.nz}
-#' @references Fan, Y., Wu, R., Chen, M.-H., Kuo, L., Lewis, P. O., 2011. Choosing among
-#'             partition models in Bayesian phylogenetics. \emph{Molecular Biology and Evolution} 28(1), 523--532.
+#' @references Fan, Y., Wu, R., Chen, M.-H., Kuo, L., Lewis, P. O., 2011. Choosing among partition models in Bayesian phylogenetics. \emph{Molecular Biology and Evolution} 28(1), 523--532.
 #'
-#'             Xie, W., Lewis, P. O., Fan, Y., Kuo, L., Chen, M.-H., 2011. Improving marginal
-#'             likelihood estimation for Bayesian phylogenetic model selection.  \emph{Systematic Biology} \bold{60}(2), 150--160.
+#' Xie, W., Lewis, P. O., Fan, Y., Kuo, L., Chen, M.-H., 2011. Improving marginal likelihood estimation for Bayesian phylogenetic model selection.  \emph{Systematic Biology} \bold{60}(2), 150--160.
 #'
 #' @examples
 #' \dontrun{

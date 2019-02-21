@@ -3,6 +3,7 @@
 export(acfs)
 export(burnin)
 export(eqchain)
+export(expldata)
 export(liketrace)
 export(mbb)
 export(ss)

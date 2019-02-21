@@ -4,16 +4,18 @@
 \alias{eqchain}
 \title{Equal chain lengths}
 \usage{
-eqchain(x)
+eqchain(x,n)
 }
 \arguments{
 \item{x}{A data frame with the folloging columns: \code{logL} and \code{invTemp}, which contain the log-likelihood and inverse temperature values, respectively.}
+
+\item{n}{Sequence length per temperature.}
 }
 \value{
 It produces a new \code{x} with a equal number of log-likelihood values at each temperature.
 }
 \description{
-This function equates the Markov chain lengths at all the temperatures according to the shortest one.
+This function equates the Markov chain lengths at all the temperatures according to the shortest one or a specific value.
 }
 \examples{
 \dontrun{
